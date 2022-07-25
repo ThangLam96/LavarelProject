@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
-        Route::controller(ProductController::class)->prefix('product/')->name('product.')->group(function () {
+        Route::controller(ProductController::class)->prefix('products/')->name('products.')->group(function () {
             Route::get('', 'index')->name('index');
 
             Route::get('create', 'create')->name('create');
@@ -45,7 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('destroy/{id}', 'destroy')->name('destroy');
         });
 
-        Route::controller(UserController::class)->prefix('user/')->name('user.')->group(function () {
+        Route::controller(UserController::class)->prefix('users/')->name('users.')->group(function () {
             Route::get('', 'index')->name('index');
 
             Route::get('create', 'create')->name('create');
