@@ -32,11 +32,24 @@
                 <div class="form-group">
                     <label>Intro</label>
                     <textarea name="intro" class="form-control" placeholder="Please Enter Intro">{{ old('intro') }}</textarea>
+                    <script>
+                        CKEDITOR.replace('intro', {
+                                filebrowserUploadUrl: " {{route('admin.upload', ['_token' => csrf_token()]) }}",
+                                filebrowserUploadMethod: 'form'
+                        })
+                    </script>
+                        
                 </div>
 
                 <div class="form-group">
                     <label>Content</label>
                     <textarea name="content" class="form-control" placeholder="Please Enter Content">{{ old('content') }}</textarea>
+                    <script>
+                    CKEDITOR.replace('content', {
+                        filebrowserUploadUrl: " {{route('admin.upload', ['_token' => csrf_token()]) }}",
+                        filebrowserUploadMethod: 'form'
+                        })
+                    </script>
                 </div>
 
                 <div class="form-group">

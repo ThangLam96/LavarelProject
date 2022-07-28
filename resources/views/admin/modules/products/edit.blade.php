@@ -2,7 +2,7 @@
 @section('module','Product')
 @section('action','Edit')
 @section('content')
-<form action=" {{ route('admin.products.update',['id', $products->id]) }}" method="post" enctype="multipart/form-data">
+<form action=" {{ route('admin.products.update',['id' => $products->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="card card-primary">
             <div class="card-header">
@@ -32,11 +32,13 @@
                 <div class="form-group">
                     <label>Intro</label>
                     <textarea name="intro" class="form-control" placeholder="Please Enter Intro">{{ old('intro', $products->intro) }}</textarea>
+                    <script>CKEDITOR.replace('intro')</script>
                 </div>
 
                 <div class="form-group">
                     <label>Content</label>
                     <textarea name="content" class="form-control" placeholder="Please Enter Content">{{ old('content', $products->content) }}</textarea>
+                    <script>CKEDITOR.replace('content')</script>
                 </div>
 
                 <div class="form-group">

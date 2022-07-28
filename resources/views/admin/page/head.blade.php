@@ -9,4 +9,5 @@
   <!-- Theme style -->
   <link rel="stylesheet" href=" {{asset ('assets/theme/css/adminlte.min.css') }}">
   <link rel="stylesheet" href=" {{asset ('assets/theme/css/styles.css') }}">
+  <script src=" {{asset ('assets/theme/plugins/ckeditor/ckeditor.js') }}"></script>
   

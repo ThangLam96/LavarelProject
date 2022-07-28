@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CkeditorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login', [LoginController::class, 'getLogin'])->name('getLogin');
+Route::post('login', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::prefix('admin')->name('admin.')->group(function () {
+        Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('upload');
+
         Route::controller(ProductController::class)->prefix('products/')->name('products.')->group(function () {
             Route::get('', 'index')->name('index');
 
