@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\CartController;
+use App\Http\Controllers\Website\ProductController as PController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
@@ -17,16 +20,20 @@ use App\Http\Controllers\CkeditorController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::name('website.')->group(function () {
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/the-loai', [PController::class, 'category'])->name('category');
+Route::get('/chi-tiet/{id}', [PController::class, 'detail'])->name('detail');
+Route::get('/gio-hang', [CartController::class, 'cart'])->name('cart');
+Route::get('/thanh-toan', [CartController::class, 'payment'])->name('payment');
 });
+
 
 Route::get('login', [LoginController::class, 'getLogin'])->name('getLogin');
 Route::post('login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
         Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('upload');
 
         Route::controller(ProductController::class)->prefix('products/')->name('products.')->group(function () {

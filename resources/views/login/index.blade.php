@@ -37,7 +37,7 @@
                         @if(Session::get('error'))
                             <div class="alert alert-danger alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h5><i class="icon fas fa-check"></i> Success!</h5>
+                                    <h5><i class="icon fas fa-check"></i> Error!</h5>
                                     {{ Session::get('error') }}  
                             </div>
                         @endif

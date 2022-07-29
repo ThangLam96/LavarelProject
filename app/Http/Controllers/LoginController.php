@@ -11,11 +11,12 @@ class LoginController extends Controller
     {
         if(Auth::check()) {
 
-            return view('login.index');
+            return redirect()->route('admin.categories.index');
 
         }
-
-        return redirect()->route('admin.categories.index');
+        
+        return view('login.index');
+        
 
     }
 
