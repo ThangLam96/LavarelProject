@@ -47,7 +47,7 @@ class UserController extends BaseController
 
         $imageName = time(). '-' . $request->avatar->getClientOriginalName();
 
-        $request->avatar->move(public_path('assets/theme/img/users'), $imageName);
+        $request->avatar->move(public_path('assets/theme/img/users/'), $imageName);
         $data['avatar'] = $imageName;
 
         $this->db->insert($data);

@@ -30,7 +30,7 @@ Route::get('/the-loai', [PController::class, 'category'])->name('category');
 Route::get('/chi-tiet/{id}', [PController::class, 'detail'])->name('detail');
 Route::get('/gio-hang', [CartController::class, 'cart'])->name('cart');
 Route::get('/thanh-toan', [CartController::class, 'payment'])->name('payment');
-Route::get('/crawler', [CrawlerController::class, 'crawler'])->name('crawler');
+Route::get('/get-data', [CrawlerController::class, 'featchALLTGDD'])->name('featchALLTGDD');
 });
 
 

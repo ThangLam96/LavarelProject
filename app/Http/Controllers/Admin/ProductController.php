@@ -49,7 +49,7 @@ class ProductController extends BaseController
         $data['created_at'] = new \DateTime();
 
         $imageName = time(). '-' . $request->image->getClientOriginalName();
-        $request->image->move(public_path('assets/theme/img/products'), $imageName);
+        $request->image->move(public_path('images'), $imageName);
         $data['image'] = $imageName;
 
         $data['user_id'] = 1;
@@ -109,13 +109,13 @@ class ProductController extends BaseController
         if (empty($request->image)) {
             $data['image'] = $user_cur->image;
         } else {
-            $image_path = public_path('assets/theme/img/products/').$product_cur->image;
+            $image_path = public_path('images').$product_cur->image;
             if (file_exists($image_path)) {
                 unlink($image_path);
             }
 
             $imageName = time(). '-' . $request->image->getClientOriginalName();
-            $request->image->move(public_path('assets/theme/img/products'), $imageName);
+            $request->image->move(public_path('images'), $imageName);
             $data['image'] = $imageName;
             }
 
@@ -140,7 +140,7 @@ class ProductController extends BaseController
             $user_cur = $user->first();
 
             if (!empty($user_cur->image)) {
-                $image_path = public_path('assets/theme/img/products/').$user_cur->image;
+                $image_path = public_path('images').$user_cur->image;
                 if (file_exists($image_path)) {
                     unlink($image_path);
                 }
