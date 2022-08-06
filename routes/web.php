@@ -26,7 +26,7 @@ use App\Http\Controllers\CkeditorController;
 
 Route::name('website.')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/the-loai', [PController::class, 'category'])->name('category');
+Route::get('/the-loai/{id}', [PController::class, 'category'])->name('category');
 Route::get('/chi-tiet/{id}', [PController::class, 'detail'])->name('detail');
 Route::get('/gio-hang', [CartController::class, 'cart'])->name('cart');
 Route::get('/thanh-toan', [CartController::class, 'payment'])->name('payment');

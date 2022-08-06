@@ -12,17 +12,15 @@ $hero =  Route::currentRouteName() != 'website.index' ? 'hero-normal' : '';
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+
+                        @php
+                        $category_section = DB::table('categories')
+                            ->where('parent_id', 2)
+                            ->get();
+                        @endphp
+                        @foreach ($category_section as $category)
+                        <li><a href="{{route ('website.category', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

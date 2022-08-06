@@ -44,12 +44,12 @@
             <div class="col-lg-9 col-md-7">
                 <div class="product__discount">
                     <div class="section-title product__discount__title">
-                        <h2>Sale Off</h2>
+                        <h2>{{ $category_name }}</h2>
                     </div>
                     <div class="row">
                         <div class="product__discount__slider owl-carousel">
 
-                            @for ($i = 1; $i <= 6; $i++)
+                            @foreach ($products_random as $product)
                             <div class="col-lg-4">
                                 <div class="product__discount__item">
                                     <div class="product__discount__item__pic set-bg"
@@ -62,13 +62,13 @@
                                         </ul>
                                     </div>
                                     <div class="product__discount__item__text">
-                                        <span>Dried Fruit</span>
-                                        <h5><a href="#">Raisin’n’nuts</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <span>{{ $product->name }}</span>
+                                        <h5><a href="{{route('website.detail', ['id' => $item->id]) }}">{{ $category_name }}</a></h5>
+                                        <div class="product__item__price">{{ number_format($product->price, 0, '', '.') }} VND</div>
                                     </div>
                                 </div>
                             </div>
-                            @endfor
+                            @endforeach
 
                         </div>
                     </div>
@@ -98,10 +98,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i = 1; $i <= 12; $i++)
+                    @foreach ($category_list as $item)
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ asset('website/img/product/product-1.jpg') }}">
+                            <div class="product__item__pic set-bg" data-setbg="{{ asset('images/'. $item->image) }}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -109,12 +109,12 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">Crab Pool Security</a></h6>
-                                <h5>$30.00</h5>
+                                <h6><a href="#">{{ $item->name }}</a></h6>
+                                <h5>{{ number_format($item->name, 0, '', '.') }} VND</h5>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="product__pagination">
                     <a href="#">1</a>

@@ -60,7 +60,7 @@ class CrawlerController extends Controller
 
     public function featchALLTGDD ()
     {
-        $result = DB::table('categories')->where('parent_id', 2)->get();
+        $result = DB::table('categories')->where('parent_id', 0)->get();
 
         foreach ($result as $item) {
             $link = $item->link;

@@ -1,34 +1,34 @@
 <section class="latest-product spad">
     <div class="container">
         <div class="row">
-            @for ($i = 1; $i <= 3; $i++)
+            @foreach ($category_lasted as $category => $products)
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
-                    <h4>Latest Products</h4>
+                    <h4>{{$category}}</h4>
                     <div class="latest-product__slider owl-carousel">
                         
-                        @for ($k = 1; $k <= 2; $k++)
+                        @foreach ($products as $product)
                         <div class="latest-prdouct__slider__item">
                             
-                            @for ($t = 1; $t <= 3; $t++)
-                            <a href="#" class="latest-product__item">
+                            @foreach ($product as $item)
+                            <a href="" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="{{ asset('website/img/latest-product/lp-1.jpg') }}" alt="">
+                                    <img src="{{ asset('images/' . $item->image) }}" alt=" {{ $item->name }}">
                                 </div>
                                 <div class="latest-product__item__text">
-                                    <h6>Crab Pool Security</h6>
-                                    <span>$30.00</span>
+                                    <h6>{{ $item->name }}</h6>
+                                    <span>{{ number_format($item->price, 0, '', '.') }} VND</span>
                                 </div>
                             </a>
-                            @endfor
+                            @endforeach
                             
                         </div>
-                        @endfor
+                        @endforeach
 
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </section>

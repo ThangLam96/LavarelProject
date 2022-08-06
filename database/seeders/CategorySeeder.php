@@ -20,12 +20,12 @@ class CategorySeeder extends Seeder
             [
             'name' => 'Menu',
             'parent_id' => 0,
-            'link' => '',
+            'link' => null,
             ],
             [
             'name' => 'Phone',
             'parent_id' => 1,
-            'link' => '',
+            'link' => null,
             ],
             [
             'name' => 'Iphone',
@@ -51,6 +51,16 @@ class CategorySeeder extends Seeder
             'name' => 'Xiaomi',
             'parent_id' => 2,
             'link' => 'https://www.thegioididong.com/dtdd-xiaomi',
+            ],
+            [
+            'name' => 'Vivo',
+            'parent_id' => 2,
+            'link' => 'https://www.thegioididong.com/dtdd-vivo',
+            ],
+            [
+            'name' => 'Nokia',
+            'parent_id' => 2,
+            'link' => 'https://www.thegioididong.com/dtdd-nokia',
             ],
     ]);
     }
